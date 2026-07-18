@@ -15,20 +15,16 @@ if not query.strip().lower().startswith("select"):
 if "limit" not in query.lower():
     query += " LIMIT 5"
 try:
-    connection = psycopg2.connect(
-        host=DB_HOST,
-        port=DB_PORT,
-        database=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD)
+    connection = psycopg2.connect(host=DB_HOST,port=DB_PORT,database=DB_NAME,user=DB_USER,password=DB_PASSWORD)
     cursor = connection.cursor()
     cursor.execute(query)
     rows = cursor.fetchall()
+    
     headers = []
     for column in cursor.description:
         headers.append(column[0])
     if len(rows) == 0:
-        print("Запрос выполнен успешно.")
+        print("Запрос выполнен.")
         print("Данные не найдены.")
     else:
         print()
