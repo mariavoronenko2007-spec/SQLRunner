@@ -76,7 +76,7 @@ python main.py
 Пример:
 
 ```sql
-SELECT * FROM students;
+SELECT * FROM students
 ```
 
 Если в запросе отсутствует `LIMIT`, программа автоматически добавит:
